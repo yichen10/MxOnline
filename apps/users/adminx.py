@@ -7,6 +7,7 @@ from .models import EmailVerifyRecord, Banner
 
 
 class BaseSetting(object):
+     #使用其他主题:
     enable_themes = True
     use_bootswatch = True
 
@@ -14,6 +15,8 @@ class BaseSetting(object):
 class GlobalSettings(object):
     site_title = "暮雪网后台管理系统"
     site_footer = "暮雪在线网"
+    #admin的样式下拉
+    menu_style = 'accordion'
 
 
 class EmailVerifyRecordAdmin(object):

@@ -34,6 +34,10 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+AUTHENTICATION_BACKENDS = (
+    'users.views.CustoBackend',
+)
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -47,7 +51,7 @@ INSTALLED_APPS = [
     'organization',
     'xadmin',
     'crispy_forms',
-    'reversion',
+    'captcha',
 ]
 
 ####用户
@@ -95,7 +99,7 @@ DATABASES = {
         'NAME': 'mxonline',
         'USER': 'root',
         'PASSWORD': '123',
-        'HOST': '192.168.25.15',
+        'HOST': '127.0.0.1',
         'PORT': '3306',
     }
 }
@@ -138,3 +142,16 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
+#邮箱设置：
+EMAIL_HOST = 'smtp.sina.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = False
+EMAIL_FROM = ''
